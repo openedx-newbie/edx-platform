@@ -13,6 +13,7 @@ CONTEXT_FIELDS_TO_INCLUDE = [
     'username',
     'session',
     'ip',
+    'remote_addr',
     'agent',
     'host',
     'referer',
