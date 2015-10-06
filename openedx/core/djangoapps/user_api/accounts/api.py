@@ -69,7 +69,7 @@ def get_account_settings(request, username=None, configuration=None, view=None):
         username = requesting_user.username
 
     try:
-        existing_user = User.objects.select_related('preference').get(username=username)
+        existing_user = User.objects.select_related('profile').get(username=username)
     except ObjectDoesNotExist:
         raise UserNotFound()
 
@@ -187,7 +187,9 @@ def update_account_settings(requesting_user, update, username=None):
         # if any exception is raised for user preference (i.e. account_privacy), the entire transaction for user account
         # patch is rolled back and the data is not saved
         if 'account_privacy' in update:
-            update_user_preferences(requesting_user, {'account_privacy': update["account_privacy"]}, None, existing_user)
+            update_user_preferences(
+                requesting_user, {'account_privacy': update["account_privacy"]}, None, existing_user
+            )
 
         if "language_proficiencies" in update:
             new_language_proficiencies = update["language_proficiencies"]
