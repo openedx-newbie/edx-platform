@@ -294,6 +294,7 @@ class EditContainerTest(NestedVerticalTest):
         container = self.go_to_nested_container_page()
         self.modify_display_name_and_verify(container)
 
+    @flaky(max_runs=20, min_passes=20)
     def test_edit_raw_html(self):
         """
         Test the raw html editing functionality.
