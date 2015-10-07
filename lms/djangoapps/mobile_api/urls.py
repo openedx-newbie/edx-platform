@@ -12,6 +12,7 @@ urlpatterns = patterns(
     url(r'^my_user_info', my_user_info),
     url(r'^video_outlines/', include('mobile_api.video_outlines.urls')),
     url(r'^course_info/', include('mobile_api.course_info.urls')),
+    url(r'^discussion_course/', include('discussion_api.urls')),
 )
 
 if settings.FEATURES["ENABLE_MOBILE_SOCIAL_FACEBOOK_FEATURES"]:
