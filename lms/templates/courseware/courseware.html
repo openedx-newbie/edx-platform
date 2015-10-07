@@ -202,7 +202,7 @@ ${fragment.foot_html()}
             <p class="sequential-status-message">
                 ${_('To access course materials, you must score {required_score}% or higher on this \
                 exam. Your current score is {current_score}%.').format(
-                    required_score=int(course.entrance_exam_minimum_score_pct * 100),
+                    required_score=int(round(course.entrance_exam_minimum_score_pct * 100)),
                     current_score=int(entrance_exam_current_score * 100)
                 )}
             </p>
